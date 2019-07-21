@@ -59,7 +59,7 @@
                 
                 <h1>Login</h1>
                 <p class="text-muted">Sign In to your account</p>
-                <form method="POST" action="{{ url('admincms') }}">
+                <form method="POST" action="{{ url('admincms/login/') }}">
                         @csrf
 
                     <div class="input-group mb-3">
@@ -95,11 +95,11 @@
                           @endif
                         </div> -->
                         <div class="col-12 text-right">
-                          @if (Route::has('register'))
+                          
                                <a class="nav-link px-0" href="{{ url('/admincms/register') }}">
-                                  {{ __('Dont have account?') }}
+                                  Dont have account?
                                </a>
-                          @endif
+                          
                         </div>
                       </div>                  
                 </form>
@@ -111,7 +111,14 @@
                         <i class="icon-social-twitter"></i>&nbsp;&nbsp;<span>Sign In with Twitter</span>
                       </a>
                     </div>
+                    <br><br>
+                    <div class="col-12">
+                      <a class="btn btn-block btn-warning" href="{{ url('/') }}">
+                        <i class="icon-home"></i>&nbsp;&nbsp;<span>Back to Homepage</span>
+                      </a>
+                    </div>
                   </div>
+                  
                 </div>
                 
               </div>

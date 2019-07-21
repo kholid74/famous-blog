@@ -8,9 +8,15 @@
               <div class="card-body">
                 <div class="row">
                   <div class="col-sm-12" align="center">
+                    
                     <h4 class="card-title mb-0">CHANGE PASSWORD</h4>
                   </div>
                   <!-- /.col-->
+                  
+                  <!-- /.col-->
+                </div>
+                <!-- /.row-->
+                <div class="col-sm-6 offset-md-3" style="margin-top:40px;">
                   @if(Session::has('flash_message_error'))
                    <div class="alert alert-danger alert-dismissible fade show" role="alert">
                     <strong>{!! session('flash_message_error') !!}</strong>
@@ -27,12 +33,7 @@
                     </button>
                     </div>            
                 @endif
-                  <!-- /.col-->
-                </div>
-                <!-- /.row-->
-                <div class="col-sm-6 offset-md-3" style="margin-top:40px;">
-                  
-                  <form class="form-horizontal"  method="post" action="{{ url('/admin/update-pwd') }}" name="password_validate" id="password_validate" novalidate="novalidate">
+                  <form class="form-horizontal"  method="post" action="{{ url('/admincms/update-password') }}" name="password_validate" id="password_validate" novalidate="novalidate">
                     @csrf
                     <div class="form-group row">
                       <label class="col-md-4 col-form-label" for="text-input">Current Password</label>

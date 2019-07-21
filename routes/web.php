@@ -22,14 +22,16 @@ Route::get('/post/{slug}', 'HomeController@post');
 
 
 Route::match(['get', 'post'], '/admincms/login','AdminController@login')->name('login');
-Route::get('/admincms/register', 'AdminController@formregister')->name('register.formregister'); 
-Route::post('/admincms/register', 'AdminController@register')->name('register.register');
+Route::get('/admincms/register', 'AdminController@formregister'); 
+Route::post('/admincms/register', 'AdminController@register')->name('register');
 
 Route::group( ['middleware' => 'auth' ], function() {
 	Route::get('/admincms/dashboard', 'AdminController@dashboard');
 	Route::resource('/admincms/post','AdminPostController');
 	Route::resource('/admincms/categories','AdminCategoriesController');
 	Route::get('/admincms/change-password', 'AdminController@changepassword');
+	Route::get('/admincms/check-pwd', 'AdminController@chkPassword');
+	Route::match(['get','post'],'/admincms/update-password','AdminController@updatePassword');
 });
 
 Route::get('/admincms/logout','AdminController@logout');

@@ -4,7 +4,7 @@ namespace App\Http\Controllers;
 
 use Illuminate\Http\Request;
 use Auth;
-//use Session;
+use Session;
 use App\User;
 use Illuminate\Support\Facades\Hash;
 
@@ -21,7 +21,7 @@ class AdminController extends Controller
         return view('admin.register');
     }
 
-    public function store(Request $request)
+    public function register(Request $request)
     {
         $this->validate($request, [
             'name' => 'required|string|max:50',
@@ -85,16 +85,16 @@ class AdminController extends Controller
             $current_password = $data['current_pwd'];
             if(Hash::check($current_password,$check_password->password)){
                 $password = bcrypt($data['new_pwd']);
-                User::where('id','1')->update(['password'=>$password]);
-                return redirect('/admin/settings')->with('flash_message_success','Password updated Successfully!');
+                User::where('id',Auth::user()->id)->update(['password'=>$password]);
+                return redirect('/admincms/change-password')->with('flash_message_success','Password updated Successfully!');
             }else {
-                return redirect('/admin/settings')->with('flash_message_error','Incorrect Current Password!');
+                return redirect('/admincms/change-password')->with('flash_message_error','Incorrect Current Password!');
             }
         }
     }
 
     public function logout(){
         Session::flush();
-        return redirect('/admincms')->with('flash_message_success','Logged out Successfully'); 
+        return redirect('/admincms/login')->with('flash_message_success','Logged out Successfully'); 
     }
 }

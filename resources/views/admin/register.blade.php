@@ -42,7 +42,7 @@
               <h1>Register</h1>
               <p class="text-muted">Create your account</p>
 
-              <form method="POST" action="{{ route('register') }}">
+              <form method="POST" action="{{ url('admincms/register') }}">
                 @csrf
 
                 <div class="input-group mb-3">
@@ -94,20 +94,32 @@
                       <i class="icon-lock"></i>
                     </span>
                   </div>
-                  <input id="password-confirm" type="password" class="form-control" name="password_confirmation" placeholder="Confirm Password" required autocomplete="new-password">
+                  <input id="password-confirm" type="password" class="form-control" name="confirm_password" placeholder="Confirm Password" required autocomplete="new-password">
                 </div>
                 <button type="submit" class="btn btn-block btn-success">
                     {{ __('Register') }}
                 </button>
 
                 <div class="col-12 text-right">
-                  @if (Route::has('login'))
+                  
                        <a class="nav-link px-0" href="{{ route('login') }}">
                           {{ __('Already have account?') }}
                        </a>
-                  @endif
+                  
                 </div>
               </div>
+
+              <div class="card-footer p-4">
+                  <div class="row">
+                   
+                    <div class="col-12">
+                      <a class="btn btn-block btn-warning" href="{{ url('/') }}">
+                        <i class="icon-home"></i>&nbsp;&nbsp;<span>Back to Homepage</span>
+                      </a>
+                    </div>
+                  </div>
+                  
+                </div>
 
               </form>
 
