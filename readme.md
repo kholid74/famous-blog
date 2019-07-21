@@ -13,7 +13,7 @@
 - Ini adalah Aplikasi CRUD blog sederhana dengan admin panel menggunakan Laravel 5.8.
 - Untuk menggunakan, silahkan clone repo ini di localhost anda.
 - Database .sql sudah disertakan didalamnya dengan nama 'famous-blog.sql'.
-- Untuk mengakses admin panel : /admincms/login & admincms/registrasi
+- Untuk mengakses admin panel : /admincms/login & admincms/register
 - Demo Login user, email : test@gmail.com | password : 12345678
 - Jika mencoba login dengan twitter, disarankan dijalankan dengan URL http://localhost/famous-blog/public.
 - Jika ada yang ingin ditanyakan, silahkan menghubungi kholidabdillah@gmail.com
